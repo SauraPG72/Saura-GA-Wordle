@@ -1,0 +1,29 @@
+* {
+    border: 1px solid blue;
+}
+main {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+main > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+main > div > div {
+    margin: 5px;
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+}
+
+.letterExists {
+    background-color: orange;
+}
+
+.sameLetterSamePlace {
+    background-color: lime;
+}
