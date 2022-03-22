@@ -1,4 +1,4 @@
-const validWords = ["hello", "world"];
+const validWords = ["hello"];
 //************** */
 function wordString() {
     const randomIndex = Math.floor(Math.random() * validWords.length);
@@ -11,26 +11,55 @@ wordString();
 //************** */
 let word = document.getElementById("word");
 let submit = document.getElementById("submit");
-let row = document.getElementsByClassName("letterOne")
+let theRow = document.getElementsByClassName("1");
+let rowNumber = 0;
+gameStatus = false;
+ //******************** */ 
+function updateRow() {
+    
+    rowNumber = rowNumber + 1;
+    classAdd = rowNumber.toString();
+    console.log(classAdd);
+    theRow = document.getElementsByClassName(classAdd);
+}
+
+
+
+
+ //********* */
 function retrieveWord() {
- //******************** */   
+  
     submit.addEventListener("click", function(){
         
-        let chosen = word.value;
-        let wordArr = chosen.split("");
+        chosen = word.value;
+        wordArr = chosen.split("");
         
-        for (const letter in wordArr) {
-        row[letter].textContent = wordArr[letter];
+        if (wordArr.length !== 5) {
+            alert("Not acceptable")
+        }
+        else {
+            updateRow();
+            update();
+        }
 
-        if (wordArr[letter] === theWordString[letter]) {
-            row[letter].classList.add("sameLetterSamePlace");
-        }
-        else if (theWordString.includes(wordArr[letter])) {
-            row[letter].classList.add("letterExists");
-        }
-        else { continue }
-        }
+
     })
+}
+function update() {
+    for (const letter in wordArr) {
+        theRow[letter].textContent = wordArr[letter];
+
+    if (wordArr[letter] === theWordString[letter]) {
+        theRow[letter].classList.add("sameLetterSamePlace");
+    }
+    else if (theWordString.includes(wordArr[letter])) {
+        theRow[letter].classList.add("letterExists");
+    }
+    else { continue }
+    }  
 
 }
+
 retrieveWord();
+
+
