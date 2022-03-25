@@ -134,3 +134,25 @@ main > div > div {
     margin-left: 150px;
     
 }
+
+#modal-button {
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: dashed;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+#modal-text {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.playagain {
+    display: flex;
+    justify-content: center;
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: dashed;
+    margin: auto;
+}

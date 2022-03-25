@@ -33,7 +33,7 @@ function updateRow() {
 }
 // ************ //
 let modalBox = document.getElementById("result");
-let modalHeader = document.getElementById("modal-button");
+let modalHeader = document.getElementById("modal-header");
 let modalText = document.getElementById("modal-text");
 let closeButton = document.getElementById("modal-button");
 closeButton.addEventListener("click", function(){
@@ -51,6 +51,7 @@ function retrieveWord() {
         if (wordArr.length !== 5) {
             modalBox.classList.add("open");
             modalHeader.textContent = "Hmmm that doesn't count";
+            modalText.textContent = "Let's try again"
         }
         else {
             updateRow();
@@ -67,6 +68,14 @@ function update() {
         if (wordArr.toString() == theWordString.toString()) {
             modalBox.classList.add("open");
             modalHeader.textContent = "You Win!!!";
+            modalText.textContent = "Wanna play again?";
+            let playAgain = document.createElement("button");
+            playAgain.classList.add("playagain");
+            playAgain.textContent = "Play Again?"
+            modalText.appendChild(playAgain);
+            playAgain.addEventListener("click", function() {
+                location.reload();
+            })
     }
 
 
