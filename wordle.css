@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shadows+Into+Light&display=swap');
 * {
     padding: 2px;
 }
 body {
+    font-family: 'Fjalla One', sans-serif;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+body {
     margin: 0 auto;
     max-width: 650px;
+    background-color: #c2c5cc;
 }
 main {
     width: 500px;
@@ -12,6 +21,31 @@ main {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 0 auto;
 }
+#word {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    flex-basis: auto;
+    font-family: 'Fjalla One', sans-serif;
+}
+#submit {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    margin-left: 300px;
+    font-family: 'Fjalla One', sans-serif;
+    margin-bottom: 20px;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+}
 
 main > div {
     display: flex;
@@ -19,30 +53,31 @@ main > div {
 }
 
 main > div > div {
+    display: flex;
+    justify-content: center;
     margin: 5px;
+    line-height: 50px;
     padding: 5px;
-    height: 20px;
-    width: 20px;
-    border: 2px solid red;
+    height: 50px;
+    width: 50px;
+    background-color: #92949b;
+    border-radius: 15px;
+    background: #e7e8ee;
+    box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff;
 }
-.incorrect {
-    background-color: grey;
-}
-.letterExists {
-    background-color: orange;
-}
-
-.sameLetterSamePlace {
-    background-color: lime;
-}
-
-
 
 .key {
     flex-basis: auto;
     height: 50px;
+    font-family: 'Fjalla One', sans-serif;
     width: 50px;
     justify-content: space-around;
+    background-color: #92949b;
+    border-radius: 15px;
+    column-gap: 7px;
+    background: #e0e9de54;
+    box-shadow: inset 0.2em 0.2em 0.4em #3b3f3a, outset -0.2em -0.2em 0.4em #6f776e;
+    
 }
 
 .row {
@@ -50,4 +85,52 @@ main > div > div {
     justify-content: center;
     width: 100%;
     height: 100%;
+}
+.incorrect {
+    background: #e0e9de54;
+    box-shadow: inset 0.2em 0.2em 0.4em #3b3f3a, inset -0.2em -0.2em 0.4em #6f776e;
+
+}
+.letterExists {
+    background: #e68507;
+    box-shadow: inset 0.2em 0.2em 0.4em #9e6907, inset -0.2em -0.2em 0.4em #9b7f4d;
+
+}
+
+.sameLetterSamePlace {
+    background: #63aa55;
+    box-shadow: inset 0.2em 0.2em 0.4em #4b7f40, inset -0.2em -0.2em 0.4em #83bb77;
+
+}
+
+
+
+/* modal dialiogues */
+#result {
+    box-sizing: border-box;
+    font-family: 'Fjalla One', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+#result.open {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#modal {
+    background-color: #fff;
+    width: 400px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 20px;
+    margin-left: 150px;
+    
 }
