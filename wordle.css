@@ -156,3 +156,10 @@ main > div > div {
     text-decoration: dashed;
     margin: auto;
 }
+#help {
+    display: flex;
+    justify-content: center;
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: dashed;
+    margin: auto;
+}
