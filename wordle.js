@@ -18,9 +18,9 @@ let submit = document.getElementById("submit");
 let theRow = document.getElementsByClassName("1");
 let rowNumber = 0;
 gameStatus = false;
- //******************** */ 
+//******************** */ 
 function updateRow() {
-    
+
     rowNumber = rowNumber + 1;
     classAdd = rowNumber.toString();
     console.log(classAdd);
@@ -28,7 +28,7 @@ function updateRow() {
 
     if (rowNumber > 6) {
         gameStatus = true;
-        
+
     }
 }
 // ************ //
@@ -36,18 +36,18 @@ let modalBox = document.getElementById("result");
 let modalHeader = document.getElementById("modal-header");
 let modalText = document.getElementById("modal-text");
 let closeButton = document.getElementById("modal-button");
-closeButton.addEventListener("click", function(){
+closeButton.addEventListener("click", function () {
     modalBox.classList.remove("open");
 })
 
- //********* */
+//********* */
 function retrieveWord() {
-  
-    submit.addEventListener("click", function(){
-        
+
+    submit.addEventListener("click", function () {
+
         chosen = word.value.toUpperCase();
         wordArr = chosen.split("");
-        
+
         if (wordArr.length !== 5) {
             modalBox.classList.add("open");
             modalHeader.textContent = "Hmmm that doesn't count";
@@ -65,17 +65,17 @@ function update() {
 
     console.log(wordArr);
 
-        if (wordArr.toString() == theWordString.toString()) {
-            modalBox.classList.add("open");
-            modalHeader.textContent = "You Win!!!";
-            modalText.textContent = "Wanna play again?";
-            let playAgain = document.createElement("button");
-            playAgain.classList.add("playagain");
-            playAgain.textContent = "Play Again?"
-            modalText.appendChild(playAgain);
-            playAgain.addEventListener("click", function() {
-                location.reload();
-            })
+    if (wordArr.toString() == theWordString.toString()) {
+        modalBox.classList.add("open");
+        modalHeader.textContent = "You Win!!!";
+        modalText.textContent = "Wanna play again?";
+        let playAgain = document.createElement("button");
+        playAgain.classList.add("playagain");
+        playAgain.textContent = "Play Again?"
+        modalText.appendChild(playAgain);
+        playAgain.addEventListener("click", function () {
+            location.reload();
+        })
     }
 
 
@@ -83,15 +83,15 @@ function update() {
     for (let i in theWordString) {
         let theWordletter = theWordString[i];
         if (letterCount[theWordletter]) {
-           letterCount[theWordletter] += 1;
-        } 
+            letterCount[theWordletter] += 1;
+        }
         else {
-           letterCount[theWordletter] = 1;
+            letterCount[theWordletter] = 1;
         }
     }
 
     console.log(letterCount);
-   
+
     for (let letter in wordArr) {
         theRow[letter].textContent = wordArr[letter];
         let currentLetter = document.getElementById(wordArr[letter].toLowerCase());
@@ -106,27 +106,27 @@ function update() {
     }
 
     for (let letter in wordArr) {
-            theRow[letter].textContent = wordArr[letter];
-            let currentLetter = document.getElementById(wordArr[letter].toLowerCase());
-            let letterCharecter = wordArr[letter];
+        theRow[letter].textContent = wordArr[letter];
+        let currentLetter = document.getElementById(wordArr[letter].toLowerCase());
+        let letterCharecter = wordArr[letter];
 
-            if (!theRow[letter].classList.contains("sameLetterSamePlace")) {
-                if (theWordString.includes(wordArr[letter]) && letterCount[letterCharecter] > 0) {
-            theRow[letter].classList.add("letterExists");
-            currentLetter.classList.add("letterExists");
-            letterCount[letterCharecter] -= 1;
-                }   
-            else { 
+        if (!theRow[letter].classList.contains("sameLetterSamePlace")) {
+            if (theWordString.includes(wordArr[letter]) && letterCount[letterCharecter] > 0) {
+                theRow[letter].classList.add("letterExists");
+                currentLetter.classList.add("letterExists");
+                letterCount[letterCharecter] -= 1;
+            }
+            else {
                 theRow[letter].classList.add("incorrect");
                 if (currentLetter) {
-                currentLetter.classList.add("incorrect");
+                    currentLetter.classList.add("incorrect");
                 }
                 else {
                     alert("Not Valid")
                 }
-            }     
-        }         
-    }  
+            }
+        }
+    }
     console.log(letterCount);
 }
 
