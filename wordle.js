@@ -26,8 +26,25 @@ function updateRow() {
     console.log(classAdd);
     theRow = document.getElementsByClassName(classAdd);
 
-    if (rowNumber > 6) {
-        gameStatus = true;
+    if (rowNumber == 6) {
+        let modalBox = document.getElementById("result");
+        let modalHeader = document.getElementById("modal-header");
+        let modalText = document.getElementById("modal-text");
+        let closeButton = document.getElementById("modal-button");
+        closeButton.addEventListener("click", function () {
+            modalBox.classList.remove("open");
+        })
+        modalBox.classList.add("open");
+        modalHeader.textContent = "You Lose";
+        play = theWordString.join("")
+        modalText.textContent = "Let's try again, the word is " + play + ".";
+        let playAgain = document.createElement("button");
+        playAgain.classList.add("playagain");
+        playAgain.textContent = "Play Again?"
+        modalText.appendChild(playAgain);
+        playAgain.addEventListener("click", function () {
+            location.reload();
+        })
 
     }
 }
@@ -133,6 +150,3 @@ function update() {
 
 retrieveWord();
 
-
-// let key = document.getElementsByClassName("key");
-// console.log(key);
